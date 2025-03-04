@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display animation easing curves</title>
+    <style type="text/css">
+        @import '/global.css';
+        @import 'easing.css';
+    </style>
+</head>
+<body>
+    <section class="container">
+        <!-- <button class="button">Animate</button> -->
+    </section>
+
+<script>
+    const variables = [
+        '--ease-in',
+        '--ease-in-quad',
+        '--ease-in-cubic',
+        '--ease-in-quart',
+        '--ease-in-quint',
+        '--ease-in-expo',
+        '--ease-in-circ',
+        '--ease-in-out-quad',
+        '--ease-in-out-cubic',
+        '--ease-in-out-quart',
+        '--ease-in-out-quint',
+        '--ease-in-out-expo',
+        '--ease-in-out-circ',
+        '--ease-out-quad',
+        '--ease-out-cubic',
+        '--ease-out-quart',
+        '--ease-out-quint',
+        '--ease-out-expo',
+        '--ease-out-circ',
+    ];
+    
+    variables.forEach((variable, index) => {
+        const ball = document.createElement('div');
+        ball.classList.add('ball');
+        document.querySelector('.container').appendChild(ball);
+        document.querySelector('.container').addEventListener('click', animate);
+        function animate() {
+            ball.style.transform = 'translatex(90vw)';        
+            ball.style.transition = `transform 2s var(${variable})`;
+            setTimeout(() => {
+                ball.style.transform = 'translatex(0)';
+            }, 3000);
+        }
+    
+    });
+
+</script>
+</body>
+</html>
+

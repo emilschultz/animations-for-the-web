@@ -1,0 +1,59 @@
+html {
+    background-color:rgba(245, 245, 245, 0.3);
+
+}
+
+.download-button {
+    height: 40px;
+    width: 40px;
+    border: .5pt solid lightgray    ;
+    border-radius: 50%;
+    display: grid;
+    cursor: pointer;
+    place-items: center;
+    box-shadow:
+      0 0 0 1px rgba(0, 0, 0, 0.08),
+      0px 2px 2px rgba(0, 0, 0, 0.04);
+    background: #fff;
+    overflow: hidden;
+}
+
+svg {
+    grid-area: 1/1;
+    transition: transform 200ms var(--ease-in-out-circ);
+}
+
+svg:first-of-type {
+    transform: translateY(-150%);
+}
+
+.download-button:hover svg:first-of-type {
+    transform: translateY(0);
+}
+
+.download-button:hover svg:last-of-type {
+    transform: translateY(150%);
+  }
+
+  /* Dette virker også: */
+
+/* .arrowDown {
+    transform: translateY(-100%);
+    transition: transform 500ms var(--ease-out-expo);
+
+  }
+  
+  .arrowUp {
+    transform: translateY(calc(100% - (18px * 1.5) ));
+    transition: transform 200ms ease;
+
+}
+.download-button:hover, .download-button:focus-visible {
+    cursor: pointer;
+    .arrowUp {
+        transform: translateY(100%);
+    }
+    .arrowDown {
+        transform: translateY(calc(100% - (18px * .5)));
+    }
+  } */

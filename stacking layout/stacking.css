@@ -1,0 +1,39 @@
+:root{  
+    --scale-increment: 0.05;
+    --translate-increment: -13%;
+}
+
+body {
+    flex-direction: column;
+}
+
+.wrapper{
+    display: grid;
+}
+
+.card {
+    width: 356px;
+    height: 74px;
+    box-shadow: 0 4px 12px #0000001a;
+    border: 1px solid #eeeeee;
+    background: white;
+    border-radius: 8px;
+    grid-area: 1 / 1;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    transform: scale(calc(1 - var(--index) * var(--scale-increment))) translateY(calc(var(--index) * var(--translate-increment)))
+
+}
+
+button {
+    width: fit-content;
+    margin: 50px 0 -50px 0;
+    border: .5px solid white;
+    border-radius: 22px;
+    color: lightgray;
+    background-color: black;
+    padding: 8px 16px;
+    cursor: pointer;
+    
+}

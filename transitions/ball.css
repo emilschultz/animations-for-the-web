@@ -1,0 +1,16 @@
+.ball {
+    cursor: pointer;
+}
+.ball-inner {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color:thistle;
+    transition: transform 200ms ease 100ms;
+    --webkit-appearance: none;
+}
+
+.ball:hover .ball-inner  {
+    cursor: pointer;
+    transform: translateY(-20%);
+}

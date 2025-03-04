@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        @import '/global.css';
+        @import 'toast.css';
+    </style>
+    <title>CSS transitions</title>
+</head>
+<body>
+
+    
+    <div class="wrapper">
+        <div class="toaster"></div>
+        <button class="button" onclick="addToast()">Add toast</button>
+    </div>
+    
+    <script>
+        const now = new Date();
+        const day = now.toLocaleString('default', { weekday: 'long' });
+        const date = now.toLocaleDateString();
+        const time = now.toLocaleTimeString();
+
+        let toasts = 0;
+        const wrapper = document.querySelector('.wrapper');
+        const toaster = document.querySelector('.toaster');
+        function addToast() {
+            toasts ++;
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+        
+        toast.innerHTML = `<span class="title">Toast no ${toasts} created</span><span class="description">${day}, ${date} at ${time}</span>`;
+        
+        toaster.appendChild(toast);
+        }
+    </script>
+
+</body>
+</html>

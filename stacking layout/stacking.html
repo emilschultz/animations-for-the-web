@@ -1,0 +1,30 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        @import '/global.css';
+        @import 'stacking.css';
+    </style>
+    <title>Stacking cards excersize</title>
+</head>
+<body>
+    <div class="wrapper">
+    </div>
+    <button>Add toast</button>
+
+    <script>
+        const LENGTH = 3;
+        const wrapper = document.querySelector('.wrapper');
+
+        for (let i = 0; i < LENGTH; i++) {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerText = 'This is a toast card';
+            wrapper.appendChild(card);
+            card.style.setProperty('--index', -i);
+        }
+    </script>
+</body>
+</html>
