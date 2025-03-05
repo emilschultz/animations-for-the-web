@@ -6,11 +6,36 @@ body {
     justify-content: end;
 }
 
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 24px;
+  height: 100%;
+}
+
+.toaster {
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  width: 356px;
+  transform: translateX(-50%);
+  --gap: 16px;
+  
+}
+
 .toast {
+  background-color: #fff;
     margin: 0;
-    position: relative;
+    position: absolute;
+    bottom: 0;
     display: flex;
     flex-direction: column;
+    opacity: 0;
     gap: 4px;
     padding: 10px 14px 13px;
     width: 100%;
@@ -20,6 +45,15 @@ body {
       0px 0px 0px 1px rgba(0, 0, 0, 0.08),
       0px 1px 2px -1px rgba(0, 0, 0, 0.08),
       0px 2px 4px 0px rgba(0, 0, 0, 0.04);
+      
+    /* transform: translateY(calc(var(--index) * (100% + var(--gap)) * -1)); */
+    transform: translateY(100%);
+    transition: transform 500ms var(--ease-out-expo), opacity 400ms ease;
+  }
+
+  .toast[data-mounted="true"] {
+    transform: translateY(calc(var(--index) * (100% + var(--gap)) * -1));
+    opacity: 1;
   }
   
   .title {
@@ -32,19 +66,7 @@ body {
     line-height: 1;
     color: #717175;
   }
-  
-  .toaster {
-    position: absolute;
-    left: 50%;
-    bottom: 80px;
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap);
-    width: 356px;
-    transform: translateX(-50%);
-    --gap: 16px;
-  }
-  
+
   .button {
     cursor: pointer;
     position: relative;
@@ -63,11 +85,3 @@ body {
       0px 2px 2px rgba(0, 0, 0, 0.04);
   }
   
-  .wrapper {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    padding: 24px;
-    height: 100%;
-  }

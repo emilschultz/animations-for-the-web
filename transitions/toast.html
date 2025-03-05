@@ -24,17 +24,29 @@
         const time = now.toLocaleTimeString();
 
         let toasts = 0;
+        
         const wrapper = document.querySelector('.wrapper');
         const toaster = document.querySelector('.toaster');
+
         function addToast() {
-            toasts ++;
+            toasts++;
             const toast = document.createElement('div');
             toast.className = 'toast';
-        
-        toast.innerHTML = `<span class="title">Toast no ${toasts} created</span><span class="description">${day}, ${date} at ${time}</span>`;
-        
-        toaster.appendChild(toast);
+            toast.innerHTML = `<span class="title">Toast no ${toasts} created</span><span class="description">${day}, ${date} at ${time}</span>`;
+
+            Array.from(toaster.children).map((child, i) => {
+             child.style.setProperty('--index', toasts - (i + 1));
+            });
+   
+            toaster.appendChild(toast);
+            setTimeout(() => {
+                let mounted = true;
+                toast.setAttribute('data-mounted', mounted);
+            }, 5);
         }
+
+        
+        
     </script>
 
 </body>
