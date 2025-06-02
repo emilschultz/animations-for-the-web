@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        @import '/global.css';
+        @import 'text-reveal.css';
+    </style>
+    <title>CSS keyframe animations</title>
+</head>
+<body>
+    <div>
+        <div>
+          <h1 class="h1">
+            
+          </h1>
+        </div>
+        <button button class="button" onClick="resetAnimation()">
+          Replay animation
+        </button>
+    </div>
+
+    <script>
+
+        const word = "Animations";
+        word.split('').forEach((letter, i) => {
+            console.log(letter);
+            const span = document.createElement('span');
+            span.innerHTML = letter;
+            span.style.setProperty('--index', i);
+            document.querySelector('.h1').appendChild(span);
+        });
+
+        function resetAnimation() { const h1 = document.querySelector('.h1');
+    
+    // Clone the h1 to remove and re-add elements
+    const newH1 = h1.cloneNode(true);
+    h1.parentNode.replaceChild(newH1, h1);
+
+        }
+    </script>
+
+</body>
+</html>
