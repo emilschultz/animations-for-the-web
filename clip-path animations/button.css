@@ -1,0 +1,49 @@
+.button:active {
+    transform: scale(0.95);
+}
+
+.button:active .hold-overlay {
+    clip-path: inset(0px 0px 0px 0%);
+    transition: clip-path 2s ease-in;
+}
+
+.hold-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  color: #ff91c8;
+  background-color: #d90007;
+  clip-path: inset(0px 100% 0px 0%);
+
+  transition: clip-path .3s ease-out;
+}
+.button {
+  position: relative;
+  display: flex;
+  height: 40px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 9999px;
+  color:  #d90007;
+  padding-inline: 24px;
+  font-weight: 500;
+  background-color: #ff91c8;
+  cursor: pointer;
+  border: none;
+  font-weight: 700;
+    transition: transform 0.16s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+} 
+
+.wrapper {
+    clip-path: inset(0px 0px 0px 0% round 9999px);
+
+}
+
+html {
+    background-color: blanchedalmond;
+}
